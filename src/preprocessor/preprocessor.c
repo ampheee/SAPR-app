@@ -4,10 +4,10 @@
 
 // extern cyaml_config_t global_config;
 
-
-// #define IF_ERROR(Status, message) \
-//     #Status ? printf("Error! %s\nExit", #message); exit(Status) : 0
-
+/*
+#define IF_ERROR(Status, message) \
+    #Status ? printf("Error! %s\nExit", #message); exit(Status) : 0
+*/
 // bool createProject(int type){
 //     if (type == 1) {
 //     } else {

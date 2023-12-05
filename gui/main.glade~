@@ -3,9 +3,10 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkWindow" id="sapr_main_window">
+    <property name="width-request">1500</property>
+    <property name="height-request">500</property>
     <property name="can-focus">False</property>
     <property name="window-position">center</property>
-    <property name="type-hint">desktop</property>
     <property name="gravity">static</property>
     <signal name="destroy" handler="onExit" swapped="no"/>
     <child>
@@ -19,9 +20,10 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="valign">end</property>
-            <property name="margin-bottom">20</property>
+            <property name="margin-bottom">50</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
+            <property name="ypad">0</property>
             <property name="label" translatable="yes">powered by ampheee</property>
             <attributes>
               <attribute name="style" value="normal"/>
@@ -34,11 +36,11 @@
           </object>
           <packing>
             <property name="left-attach">0</property>
-            <property name="top-attach">2</property>
+            <property name="top-attach">1</property>
           </packing>
         </child>
         <child>
-          <object class="GtkMenuBar">
+          <object class="GtkMenuBar" id="sapr_menu_bar">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="halign">center</property>
@@ -196,59 +198,90 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox">
+          <object class="GtkBox" id="main_gtk_box">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkBox">
+              <object class="GtkStackSwitcher">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="orientation">vertical</property>
+                <property name="margin-start">540</property>
+                <property name="margin-end">540</property>
+                <property name="homogeneous">True</property>
+                <property name="stack">stack1</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">1</property>
+                <property name="position">-1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkStack" id="stack1">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
                 <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">button</property>
+                  <object class="GtkStack" id="create_project_switch">
                     <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="receives-default">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <placeholder/>
+                    </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
+                    <property name="name">page0</property>
+                    <property name="title" translatable="yes">project</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">button</property>
+                  <object class="GtkStack" id="preprocessor_switch">
                     <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="receives-default">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <placeholder/>
+                    </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
+                    <property name="name">preprocessor_switch</property>
+                    <property name="title" translatable="yes">preprocessor</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">button</property>
+                  <object class="GtkStack" id="processor_switch">
                     <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="receives-default">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <placeholder/>
+                    </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
+                    <property name="name">processor_switch</property>
+                    <property name="title" translatable="yes">processor</property>
                     <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkStack">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="name">postprocessor_switch</property>
+                    <property name="title" translatable="yes">postprocessor</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -256,6 +289,9 @@
             <property name="left-attach">0</property>
             <property name="top-attach">1</property>
           </packing>
+        </child>
+        <child>
+          <placeholder/>
         </child>
       </object>
     </child>

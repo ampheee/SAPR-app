@@ -231,7 +231,7 @@
                     </child>
                   </object>
                   <packing>
-                    <property name="name">page0</property>
+                    <property name="name">page0g</property>
                     <property name="title" translatable="yes">project</property>
                   </packing>
                 </child>

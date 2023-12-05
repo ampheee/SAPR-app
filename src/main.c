@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 // Слот выхода из программы
-G_MODULE_EXPORT void onExit(GtkWindow * w) {
+G_MODULE_EXPORT void onExit(GtkWindow * w __attribute__((unused))) {
     gtk_main_quit();
 }
 
@@ -25,7 +25,7 @@ int main(int argc, char * argv[]) {
         g_error_free (err);
     }
     GtkWidget * window = GTK_WIDGET(gtk_builder_get_object(ui_builder, "sapr_main_window"));
-    gtk_window_fullscreen((GtkWindow *) window);
+    gtk_window_maximize((GtkWindow *) window);
     gtk_builder_connect_signals(ui_builder, NULL);
     gtk_widget_show_all(window);
     gtk_main();
