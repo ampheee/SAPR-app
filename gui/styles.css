@@ -1,0 +1,75 @@
+.font_default {
+ color: #e1e1e1;
+ font-size: 12px;
+ text-shadow: 2px 2px 2px black;
+}
+
+.panes {
+	border: 5px solid #212121;
+	background: #212121;
+ }
+
+ .titlebutton {
+ border: 1px solid #212121;
+ /* border-radius: 5; */
+ background: #212121;
+ color: #e1e1e1;
+ border-color: #212121;
+ }
+
+ .GtkPaned .pane-separator {
+     background-color: #000000;
+     border-width: 0;
+     background-size: 0px auto;
+     background-repeat: no-repeat;
+     background-position: center;
+}
+
+.bg {
+	border: 5px solid #181818;
+	background: #181818;
+ }
+
+ .header {
+   border: 0px #181818;
+   border-style: solid;
+   background: #181818;
+   color: #e1e1e1;
+   border-top-color: #181818;
+  }
+
+ .button {
+  margin: 5px;
+	border: 1px solid #212121;
+	border-radius: 5px;
+  background: #212121;
+	color: #e1e1e1;
+	border-top-color: #212121;
+  background-image: none;
+  background-color: rgba (0, 0, 0, 0);
+
+}
+
+.GtkStackSwitcher .button {
+	background-color: #ff0000;
+	background: #ff0000;
+  border-width: 0;
+
+ /* Override any background with
+  * a full transparent color
+  */
+ background-image: none;
+ background-color: rgba (0, 0, 0, 0);
+}
+
+.GtkStackSwitcher .button:checked{
+	background-color: #0000ff;
+	background: #0000ff;
+}
+.GtkStackSwitcher .button:active{
+	background-color: #00ff00;
+	background: #00ff00;
+}
+
+.GtkStackSwitcher .button .requires-attention{
+}

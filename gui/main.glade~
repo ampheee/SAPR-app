@@ -203,13 +203,16 @@
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkStackSwitcher">
+              <object class="GtkStackSwitcher" id="main_menu_switcher">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="margin-start">540</property>
                 <property name="margin-end">540</property>
                 <property name="homogeneous">True</property>
-                <property name="stack">stack1</property>
+                <property name="stack">main_menu_stack</property>
+                <style>
+                  <class name="stack-switcher.button"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -219,15 +222,210 @@
               </packing>
             </child>
             <child>
-              <object class="GtkStack" id="stack1">
+              <object class="GtkStack" id="main_menu_stack">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
-                  <object class="GtkStack" id="create_project_switch">
+                  <object class="GtkStack" id="create_project_stack">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <placeholder/>
+                      <!-- n-columns=2 n-rows=1 -->
+                      <object class="GtkGrid" id="project_grid">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkStackSwitcher" id="project_content_switcher">
+                            <property name="width-request">100</property>
+                            <property name="height-request">250</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="can-default">True</property>
+                            <property name="has-default">True</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="margin-start">200</property>
+                            <property name="margin-top">200</property>
+                            <property name="orientation">vertical</property>
+                            <property name="homogeneous">True</property>
+                            <property name="stack">stack1</property>
+                          </object>
+                          <packing>
+                            <property name="left-attach">0</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkStack" id="stack1">
+                            <property name="name">project_info</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="hhomogeneous">False</property>
+                            <property name="vhomogeneous">False</property>
+                            <child>
+                              <!-- n-columns=2 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="valign">center</property>
+                                <property name="margin-start">100</property>
+                                <property name="margin-top">42</property>
+                                <property name="row-spacing">30</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">Project Name:</property>
+                                    <property name="single-line-mode">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="margin-bottom">3</property>
+                                    <property name="label" translatable="yes">label</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkViewport">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <child>
+                                      <object class="GtkListBox" id="download_queue1">
+                                        <property name="visible">True</property>
+                                        <property name="can-focus">False</property>
+                                        <style>
+                                          <class name="font_default"/>
+                                          <class name="panes"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                    <style>
+                                      <class name="panes"/>
+                                    </style>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">1</property>
+                                    <property name="top-attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">project_info_grid</property>
+                                <property name="title" translatable="yes">Information</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">LD_grid</property>
+                                <property name="title" translatable="yes">Construction</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">loads_grid</property>
+                                <property name="title" translatable="yes">Loads</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="left-attach">1</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                        <style>
+                          <class name="panes"/>
+                        </style>
+                      </object>
+                      <packing>
+                        <property name="name">page0</property>
+                        <property name="title" translatable="yes">page0</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>
@@ -236,11 +434,136 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkStack" id="preprocessor_switch">
+                  <object class="GtkStack" id="preprocessor_stack">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <placeholder/>
+                      <!-- n-columns=2 n-rows=1 -->
+                      <object class="GtkGrid" id="project_grid1">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkStackSwitcher" id="project_content_switcher1">
+                            <property name="width-request">100</property>
+                            <property name="height-request">250</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="can-default">True</property>
+                            <property name="has-default">True</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="margin-left">200</property>
+                            <property name="margin-start">200</property>
+                            <property name="margin-top">200</property>
+                            <property name="orientation">vertical</property>
+                            <property name="homogeneous">True</property>
+                            <property name="stack">stack1</property>
+                          </object>
+                          <packing>
+                            <property name="left-attach">0</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkStack" id="stack2">
+                            <property name="name">project_info</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="hhomogeneous">False</property>
+                            <property name="vhomogeneous">False</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">LD_grid</property>
+                                <property name="title" translatable="yes">Construction</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">loads_grid</property>
+                                <property name="title" translatable="yes">Loads</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="left-attach">1</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">page0</property>
+                        <property name="title" translatable="yes">page0</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>
@@ -250,11 +573,132 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkStack" id="processor_switch">
+                  <object class="GtkStack" id="processor_stack">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <placeholder/>
+                      <!-- n-columns=2 n-rows=1 -->
+                      <object class="GtkGrid" id="project_grid2">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkStackSwitcher" id="project_content_switcher2">
+                            <property name="width-request">100</property>
+                            <property name="height-request">250</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="can-default">True</property>
+                            <property name="has-default">True</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="margin-left">200</property>
+                            <property name="margin-start">200</property>
+                            <property name="margin-top">200</property>
+                            <property name="orientation">vertical</property>
+                            <property name="homogeneous">True</property>
+                            <property name="stack">stack1</property>
+                          </object>
+                          <packing>
+                            <property name="left-attach">0</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkStack" id="stack3">
+                            <property name="name">project_info</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="hhomogeneous">False</property>
+                            <property name="vhomogeneous">False</property>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">LD_grid</property>
+                                <property name="title" translatable="yes">Construction</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">loads_grid</property>
+                                <property name="title" translatable="yes">Loads</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="left-attach">1</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">page0</property>
+                        <property name="title" translatable="yes">page0</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>
@@ -264,11 +708,132 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkStack">
+                  <object class="GtkStack" id="postprocessor_stack">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <placeholder/>
+                      <!-- n-columns=2 n-rows=1 -->
+                      <object class="GtkGrid" id="project_grid3">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkStackSwitcher" id="project_content_switcher3">
+                            <property name="width-request">100</property>
+                            <property name="height-request">250</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="can-default">True</property>
+                            <property name="has-default">True</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="margin-left">200</property>
+                            <property name="margin-start">200</property>
+                            <property name="margin-top">200</property>
+                            <property name="orientation">vertical</property>
+                            <property name="homogeneous">True</property>
+                            <property name="stack">stack1</property>
+                          </object>
+                          <packing>
+                            <property name="left-attach">0</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkStack" id="stack4">
+                            <property name="name">project_info</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="hhomogeneous">False</property>
+                            <property name="vhomogeneous">False</property>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">LD_grid</property>
+                                <property name="title" translatable="yes">Construction</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <!-- n-columns=3 n-rows=3 -->
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">loads_grid</property>
+                                <property name="title" translatable="yes">Loads</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="left-attach">1</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">page0</property>
+                        <property name="title" translatable="yes">page0</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>
@@ -293,6 +858,9 @@
         <child>
           <placeholder/>
         </child>
+        <style>
+          <class name="GtkPaned .pane-separator"/>
+        </style>
       </object>
     </child>
   </object>
