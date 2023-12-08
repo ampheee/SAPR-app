@@ -2,6 +2,7 @@
 <!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
+  <!-- interface-css-provider-path styles.css -->
   <object class="GtkWindow" id="sapr_main_window">
     <property name="width-request">1500</property>
     <property name="height-request">500</property>
@@ -473,9 +474,6 @@
                             <property name="hhomogeneous">False</property>
                             <property name="vhomogeneous">False</property>
                             <child>
-                              <placeholder/>
-                            </child>
-                            <child>
                               <!-- n-columns=3 n-rows=3 -->
                               <object class="GtkGrid">
                                 <property name="visible">True</property>
@@ -511,7 +509,6 @@
                               <packing>
                                 <property name="name">LD_grid</property>
                                 <property name="title" translatable="yes">Construction</property>
-                                <property name="position">1</property>
                               </packing>
                             </child>
                             <child>
@@ -550,7 +547,7 @@
                               <packing>
                                 <property name="name">loads_grid</property>
                                 <property name="title" translatable="yes">Loads</property>
-                                <property name="position">2</property>
+                                <property name="position">1</property>
                               </packing>
                             </child>
                           </object>

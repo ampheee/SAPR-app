@@ -29,7 +29,10 @@ int main(int argc, char * argv[]) {
     if (!gtk_css_provider_load_from_path(css_provider, "gui/styles.css", &err)) {
         g_critical("Не вышло загрузить файл проводника стилей CSS: %s", err->message);
         g_error_free(err);
-    } 
+    }
+    gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
+                    GTK_STYLE_PROVIDER(css_provider),
+                    GTK_STYLE_PROVIDER_PRIORITY_USER);
     GtkWidget * window = GTK_WIDGET(gtk_builder_get_object(ui_builder, "sapr_main_window"));
     gtk_window_maximize((GtkWindow *) window);
     gtk_builder_connect_signals(ui_builder, NULL);
