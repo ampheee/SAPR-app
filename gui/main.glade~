@@ -3,8 +3,11 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <!-- interface-css-provider-path styles.css -->
-  <object class="GtkTextBuffer" id="construction_template_buffer">
-    <property name="text" translatable="yes">214124</property>
+  <object class="GtkTextBuffer" id="construction.yml_buffer">
+    <property name="text" translatable="yes">construction</property>
+  </object>
+  <object class="GtkTextBuffer" id="loads.yml_buffer">
+    <property name="text" translatable="yes">loads</property>
   </object>
   <object class="GtkWindow" id="sapr_main_window">
     <property name="width-request">1800</property>
@@ -76,7 +79,7 @@
                         <property name="can-focus">False</property>
                         <property name="use-underline">True</property>
                         <property name="use-stock">True</property>
-                        <signal name="activate" handler="file_open" swapped="no"/>
+                        <signal name="activate" handler="file_open_handler" swapped="no"/>
                         <child internal-child="accessible">
                           <object class="AtkObject" id="open_file_button-atkobject">
                             <property name="AtkObject::accessible-role">file-chooser</property>
@@ -268,7 +271,7 @@
                             <property name="hhomogeneous">False</property>
                             <property name="vhomogeneous">False</property>
                             <child>
-                              <object class="GtkScrolledWindow">
+                              <object class="GtkScrolledWindow" id="info_text_view">
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="hexpand">True</property>
@@ -278,6 +281,9 @@
                                   <object class="GtkTextView" id="information_text_view">
                                     <property name="visible">True</property>
                                     <property name="can-focus">True</property>
+                                    <style>
+                                      <class name="info_bar_background"/>
+                                    </style>
                                   </object>
                                 </child>
                               </object>
@@ -287,17 +293,17 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkScrolledWindow">
+                              <object class="GtkScrolledWindow" id="construction.yml_view">
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="hexpand">True</property>
                                 <property name="shadow-type">in</property>
                                 <property name="overlay-scrolling">False</property>
                                 <child>
-                                  <object class="GtkTextView" id="construction_text_view">
+                                  <object class="GtkTextView" id="construction.ymlview">
                                     <property name="visible">True</property>
                                     <property name="can-focus">True</property>
-                                    <property name="buffer">construction_template_buffer</property>
+                                    <property name="buffer">construction.yml_buffer</property>
                                     <property name="overwrite">True</property>
                                     <property name="monospace">True</property>
                                     <style>
@@ -313,16 +319,17 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkScrolledWindow">
+                              <object class="GtkScrolledWindow" id="loads_text_view ">
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="hexpand">True</property>
                                 <property name="shadow-type">in</property>
                                 <property name="overlay-scrolling">False</property>
                                 <child>
-                                  <object class="GtkTextView">
+                                  <object class="GtkTextView" id="loads.ymlview">
                                     <property name="visible">True</property>
                                     <property name="can-focus">True</property>
+                                    <property name="buffer">loads.yml_buffer</property>
                                   </object>
                                 </child>
                               </object>

@@ -1,5 +1,5 @@
 CFLAGS=-Wall -Wextra
-FLAGS=
+FLAGS=-g
 LIBS=gtk+-3.0
 INCLUDE=./include/ `pkg-config --cflags --libs $(LIBS)`
 SRC=$(shell find . -name '*.c')

@@ -16,7 +16,7 @@ int main(int argc, char * argv[]) {
     GError * err = NULL;
     char cwd[516];
     getcwd(cwd, sizeof(cwd));
-    ui_builder = gtk_bcwduicwdlder_new();
+    ui_builder = gtk_builder_new();
     if(!gtk_builder_add_from_file(ui_builder, "gui/main.glade", &err)) {
         g_critical("Не вышло загрузить файл с UI : %s", err->message);
         g_error_free(err);

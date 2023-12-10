@@ -8,6 +8,12 @@
 #define SUCCESS true
 #define FAIL false
 
+#define BUFFER_SIZE 2048
+#define FILE_OPEN_MODE "rw+"
+
+extern GtkBuilder *ui_builder;
+
+
 typedef int coordinate;
 
 typedef struct _POINT {
