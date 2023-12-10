@@ -1,17 +1,27 @@
 .font_default {
  color: #e1e1e1;
- font-size: 12px;
+ font-size: 14px;
  text-shadow: 2px 2px 2px black;
+ font-family: sans-serif;
 }
 
-.panes {
-	border: 5px solid #212121;
-	background: #212121;
+.main_background{
+	background: rgb(0, 0, 0);
+}
+
+.info_bar_background {
+  border: 1px solid rgb(158, 158, 158);
+  background: rgb(19, 22, 24);
+}
+
+.menu_bar_background{
+	border: 3px solid;
+	background-color: rgb(158, 158, 158);
  }
 
  .titlebutton {
  border: 1px solid #212121;
- /* border-radius: 5; */
+ border-radius: 5px;
  background: #212121;
  color: #e1e1e1;
  border-color: #212121;
@@ -25,11 +35,6 @@
      background-position: center;
 }
 
-.bg {
-	border: 5px solid #181818;
-	background: #181818;
- }
-
  .header {
    border: 0px #181818;
    border-style: solid;
@@ -42,34 +47,15 @@
   margin: 5px;
 	border: 1px solid #212121;
 	border-radius: 5px;
-  background: #212121;
+  background: #553737;
 	color: #e1e1e1;
 	border-top-color: #212121;
   background-image: none;
   background-color: rgba (0, 0, 0, 0);
 
 }
-
-.GtkStackSwitcher .button {
-	background-color: #ff0000;
-	background: #ff0000;
-  border-width: 0;
-
- /* Override any background with
-  * a full transparent color
-  */
- background-image: none;
- background-color: rgba (0, 0, 0, 0);
-}
-
-.GtkStackSwitcher .button:checked{
-	background-color: #0000ff;
-	background: #0000ff;
-}
-.GtkStackSwitcher .button:active{
-	background-color: #00ff00;
-	background: #00ff00;
-}
-
-.GtkStackSwitcher .button .requires-attention{
+.GtkStackSwitcher {
+  background-color: rgb(158, 158, 158);
+  border: 2px solid #796d6d;
+	border-radius: 10px;
 }

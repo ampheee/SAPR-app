@@ -2,6 +2,7 @@
 #define _COMMON_HEADER_
 
 #include <stdbool.h>
+#include <gtk/gtk.h>
 // #include <cyaml/cyaml.h>
 
 #define SUCCESS true

@@ -1,12 +1,8 @@
 CFLAGS=-Wall -Wextra
-FLAGS= -Wl,-export-dynamic
+FLAGS=
 LIBS=gtk+-3.0
 INCLUDE=./include/ `pkg-config --cflags --libs $(LIBS)`
-SRC_DIR=./src
-SRC_PREPROCESSOR=$(SRC_DIR)/preprocessor
-SRC_PROCESSOR=$(SRC_DIR)/processor
-SRC_POSTPROCESSOR=$(SRC_DIR)/postprocessor
-SRC=${SRC_DIR}/main.c $(SRC_PREPROCESSOR)/*.c $(SRC_PROCESSOR)/*c $(SRC_POSTPROCESSOR)/*.c
+SRC=$(shell find . -name '*.c')
 BUILD_DIR=build
 
 APP_NAME=SAPR_BAR
@@ -17,7 +13,7 @@ all:
 
 build_bin:
 	mkdir -p $(BUILD_DIR)
-	gcc	$(SRC) $(CFLAGS)	$(FLAGS) -I $(INCLUDE) -o $(BUILD_DIR)/$(APP_NAME)
+	gcc	-rdynamic $(SRC) $(CFLAGS)	$(FLAGS) -I $(INCLUDE) -o $(BUILD_DIR)/$(APP_NAME)
 	./$(BUILD_DIR)/$(APP_NAME)
 
 build_exe32:
