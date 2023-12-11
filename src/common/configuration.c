@@ -1,29 +1,14 @@
 #include <common.h>
+#include <yaml.h>
 
-// static cyaml_config_t global_config;
-// const cyaml_schema_value_t construction_schema;
-// const cyaml_schema_value_t loads_schema;
+void parse_conf(const char *buffer_name, void *configuration_ptr);
 
-// bool save_configuration() {
-//     // cyaml_save_file() > 0 ? return FAIL : 0;
-//     return SUCCESS;
-// }
+project_conf parse_project_conf() {
+  parse_conf("construction.yml_buffer", NULL);
+}
 
-// bool create_configuration() {
-//     cyaml_config_t config;
-//     cyaml_schema_value_t schema_val;
-//     return SUCCESS; 
-// }
-
-// bool parse_configuration() {
-//     cyaml_err_t err;
-//     err = cyaml_load_file(
-//         "../conf/construction.yml",
-//         &global_config,
-//         &construction_schema,
-//         NULL,
-//         NULL
-//     );
-//     printf("err is: %v\n", err);
-//     return SUCCESS;
-// }
+void parse_conf(const char *buffer_name, void *configuration_ptr) {
+  yaml_parser_t parser;
+  yaml_parser_initialize(&parser);
+  // yaml_parser_set_input_string(&parser, );
+}

@@ -2,8 +2,11 @@
 #include <stdio.h>
 #include <unistd.h>
 
-GtkWidget *window;
 GtkBuilder *ui_builder;
+GtkWindow  *window;
+GtkTextBuffer *construction_buffer;
+GtkTextBuffer *loads_buffer;
+GtkTextBuffer *project_buffer;
 
 // Слот выхода из программы
 G_MODULE_EXPORT void onExit(GtkWindow * w __attribute__((unused))) {
@@ -29,7 +32,10 @@ int main(int argc, char * argv[]) {
     gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                     GTK_STYLE_PROVIDER(css_provider),
                     GTK_STYLE_PROVIDER_PRIORITY_USER);
-    window = GTK_WIDGET(gtk_builder_get_object(ui_builder, "sapr_main_window"));
+    window = GTK_WINDOW(gtk_builder_get_object(ui_builder, "sapr_main_window"));
+    construction_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(ui_builder, "construction.yml_buffer"));
+    loads_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(ui_builder, "loads.yml_buffer"));
+    project_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(ui_builder, "project.yml_buffer"));
     gtk_window_maximize((GtkWindow *) window);
     gtk_builder_connect_signals(ui_builder, NULL);
     gtk_widget_show_all(window);

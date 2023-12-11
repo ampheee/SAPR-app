@@ -231,15 +231,15 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <!-- n-columns=2 n-rows=1 -->
+                      <!-- n-columns=3 n-rows=1 -->
                       <object class="GtkGrid" id="project_grid">
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkStackSwitcher" id="project_content_switcher">
-                            <property name="width-request">100</property>
-                            <property name="height-request">350</property>
+                            <property name="width-request">150</property>
+                            <property name="height-request">360</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <property name="can-default">True</property>
@@ -263,10 +263,11 @@
                         <child>
                           <object class="GtkStack" id="information_stack">
                             <property name="name">project_info</property>
+                            <property name="height-request">520</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="margin-start">100</property>
-                            <property name="margin-end">350</property>
+                            <property name="margin-start">185</property>
+                            <property name="margin-end">185</property>
                             <property name="margin-top">200</property>
                             <property name="hhomogeneous">False</property>
                             <property name="vhomogeneous">False</property>
@@ -348,6 +349,61 @@
                             <property name="top-attach">0</property>
                           </packing>
                         </child>
+                        <child>
+                          <!-- n-columns=1 n-rows=3 -->
+                          <object class="GtkGrid">
+                            <property name="height-request">360</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="margin-end">200</property>
+                            <property name="margin-top">280</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkButton">
+                                <property name="label" translatable="yes">Open project</property>
+                                <property name="height-request">120</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="left-attach">0</property>
+                                <property name="top-attach">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton">
+                                <property name="label" translatable="yes">Save project</property>
+                                <property name="width-request">150</property>
+                                <property name="height-request">120</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="left-attach">0</property>
+                                <property name="top-attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton">
+                                <property name="label" translatable="yes">Create project</property>
+                                <property name="height-request">120</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="left-attach">0</property>
+                                <property name="top-attach">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="left-attach">2</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="name">page0</property>
@@ -365,14 +421,14 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <!-- n-columns=2 n-rows=1 -->
+                      <!-- n-columns=3 n-rows=1 -->
                       <object class="GtkGrid" id="project_grid1">
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkStackSwitcher" id="project_content_switcher1">
-                            <property name="width-request">100</property>
+                            <property name="width-request">150</property>
                             <property name="height-request">350</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
@@ -397,10 +453,11 @@
                         <child>
                           <object class="GtkStack" id="stack2">
                             <property name="name">project_info</property>
+                            <property name="height-request">520</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="margin-start">100</property>
-                            <property name="margin-end">350</property>
+                            <property name="margin-start">185</property>
+                            <property name="margin-end">185</property>
                             <property name="margin-top">200</property>
                             <property name="hexpand">True</property>
                             <property name="hhomogeneous">False</property>
@@ -416,6 +473,7 @@
                                     <property name="can-focus">False</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">False</property>
+                                    <signal name="draw" handler="draw_cb" swapped="no"/>
                                     <style>
                                       <class name="info_bar_background"/>
                                     </style>
@@ -453,6 +511,62 @@
                           </object>
                           <packing>
                             <property name="left-attach">1</property>
+                            <property name="top-attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <!-- n-columns=1 n-rows=3 -->
+                          <object class="GtkGrid">
+                            <property name="height-request">360</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="margin-right">200</property>
+                            <property name="margin-end">200</property>
+                            <property name="margin-top">280</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkButton">
+                                <property name="label" translatable="yes">button</property>
+                                <property name="height-request">120</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="left-attach">0</property>
+                                <property name="top-attach">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton">
+                                <property name="label" translatable="yes">button</property>
+                                <property name="width-request">150</property>
+                                <property name="height-request">120</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="left-attach">0</property>
+                                <property name="top-attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton">
+                                <property name="label" translatable="yes">button</property>
+                                <property name="height-request">120</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="left-attach">0</property>
+                                <property name="top-attach">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="left-attach">2</property>
                             <property name="top-attach">0</property>
                           </packing>
                         </child>

@@ -1,7 +1,7 @@
 CFLAGS=-Wall -Wextra
 FLAGS=-g
-LIBS=gtk+-3.0
-INCLUDE=./include/ `pkg-config --cflags --libs $(LIBS)`
+LIBS=`pkg-config --cflags --libs gtk+-3.0	yaml-0.1`
+INCLUDE=./include/ $(LIBS)
 SRC=$(shell find . -name '*.c')
 BUILD_DIR=build
 
