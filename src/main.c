@@ -38,7 +38,7 @@ int main(int argc, char * argv[]) {
     project_buffer = GTK_TEXT_BUFFER(gtk_builder_get_object(ui_builder, "project.yml_buffer"));
     gtk_window_maximize((GtkWindow *) window);
     gtk_builder_connect_signals(ui_builder, NULL);
-    gtk_widget_show_all(window);
+    gtk_widget_show_all(GTK_WIDGET(window));
     gtk_main();
     return 0;
 }

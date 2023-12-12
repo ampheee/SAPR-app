@@ -26,7 +26,7 @@ char* read_file(const char* path) {
 void* save_file(const char *path, const char *buffer) {
     FILE *f = fopen(path, "w");
     printf("path: %s\nin buffer: %s\n", path, buffer);
-    fwrite(buffer, sizeof(buffer) + 1, 1, f);
+    fwrite(buffer, strlen(buffer), 1, f);
     fclose(f);
 }
 
