@@ -28,20 +28,21 @@ typedef enum  {
 } load_t;
 
 typedef struct _EDGE {
-    point_t from_point;
-    point_t to_point;
+    int from_point;
+    int to_point;
     int id;
 } edge_t;
 
+#include <helpers.h>
 
 #define FAIL_CUTBACK(expression, status, message, ...)    \
     do {                                                  \
         if (expression) {                                 \
             fprintf(stderr, message, ##__VA_ARGS__);      \
             status = FAIL;                                \
+            show_error_popup(message, GTK_MESSAGE_ERROR,  ##__VA_ARGS__);     \
         }                                                 \
     } while (0)
-
 
 // struct for all-configuration
 

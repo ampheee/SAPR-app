@@ -9,10 +9,10 @@ countEdges:  1
 points:
   - x: 1.0
     y: 2.0
-    id: 101
+    point_id: 101
   - x: 3.0
     y: 4.0
-    id: 102
+    edge_id: 102
 
 edges:
   - from_point: 101

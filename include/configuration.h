@@ -16,11 +16,12 @@ typedef struct _loads_configuration {
 } conf_loads_t;
 
 typedef struct _project_configuration {
-    char *creation_data;
-    char *project_name;
-    char *project_path;
-    char *construction_path;
-    char *loads_path;
+    char creation_data[BUFFER_SIZE];
+    char update_data[BUFFER_SIZE];
+    char *project_name[BUFFER_SIZE];
+    char *project_path[BUFFER_SIZE];
+    char *construction_path[BUFFER_SIZE];
+    char *loads_path[BUFFER_SIZE];
 } conf_project_t;
 
 int parse_construction_conf();
